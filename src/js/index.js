@@ -46,7 +46,7 @@ $.fn.blogger_hashtag_plugin = function(){
         html = html.join("");
         $(this).html(html);
     } catch (error) {
-    console.log(error);
+    console.log(error); 
         
     }
 } 
