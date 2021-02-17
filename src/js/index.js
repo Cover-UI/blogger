@@ -1,16 +1,8 @@
 const $ = require("jquery");
 require("jquery-modal");
-require("jquery-lazy");
 
-var sd_popup_modal_delay = 8;
+var sd_popup_modal_delay = 5;
 var container_id = ".post-content.post-body";
-
-function sd_popup_modal(){
-    if(sessionStorage.getItem('sd_popup_modal') == 'true'){
-        $('.modal').modal();
-        sessionStorage.setItem('sd_popup_modal','true');
-    }
-}
 
 function sd_get_search_url(value){
     return "/search?q="+value;
@@ -56,16 +48,11 @@ $.fn.blogger_hashtag_plugin = function(){
 
 $(container_id).blogger_hashtag_plugin();
 
-setTimeout(sd_popup_modal,sd_popup_modal_delay*1000);
-
-$(".lazy").Lazy({
-
-    beforeLoad: function (element){
-        $(element).addClass("unloaded-content");
-    },
-    afterLoad: function (element){
-        $(element).removeClass("unloaded-content");
+setTimeout(function sd_popup_modal(){
+    if(sessionStorage.getItem('sd_popup_modal') == 'true'){
+        $('.modal').modal();
+        sessionStorage.setItem('sd_popup_modal','true');
     }
+},sd_popup_modal_delay*1000);
 
-});
 
