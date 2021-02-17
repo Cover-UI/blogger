@@ -49,7 +49,7 @@ $.fn.blogger_hashtag_plugin = function(){
 $(container_id).blogger_hashtag_plugin();
 
 setTimeout(function sd_popup_modal(){
-    if(sessionStorage.getItem('sd_popup_modal') == 'true'){
+    if(!sessionStorage.getItem('sd_popup_modal') == 'true'){
         $('.modal').modal();
         sessionStorage.setItem('sd_popup_modal','true');
     }
