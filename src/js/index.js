@@ -46,7 +46,12 @@ $.fn.blogger_hashtag_plugin = function(){
     $(this).html(html);
 } 
 
-$(container_id).blogger_hashtag_plugin();
+try {
+    $(container_id).blogger_hashtag_plugin();
+} catch (error) {
+    console.log(error);
+}
+
 
 setTimeout(function sd_popup_modal(){
     if(!sessionStorage.getItem('sd_popup_modal') == 'true'){
