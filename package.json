@@ -1,0 +1,32 @@
+{
+  "name": "blogger",
+  "version": "1.0.0",
+  "description": "Widgets, Services and Scripts for Blogger CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cover-UI/blogger.git"
+  },
+  "author": "stingy developer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cover-UI/blogger/issues"
+  },
+  "homepage": "https://github.com/Cover-UI/blogger#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.1.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.13",
+    "core-js": "^3.8.3"
+  }
+}
