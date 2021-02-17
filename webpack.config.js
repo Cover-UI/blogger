@@ -5,7 +5,7 @@ module.exports = {
 entry: './src/js/index.js',
 output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js'
+    filename: 'js/bundlev2.js'
 },
 devServer: {
     contentBase: './dist'
