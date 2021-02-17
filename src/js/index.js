@@ -32,18 +32,23 @@ function sd_hashtag_split(array){
 //let container_id = "main";
 
 $.fn.blogger_hashtag_plugin = function(){
-    let html = $(this).html();
-    html = html.split("#");
-    html = sd_hashtag_split(html);
-    for (let i = 1; i < html.length; i++) {
-        let hashtag = html[i].split(" ");
+    try {
+        let html = $(this).html();
+        html = html.split("#");
+        html = sd_hashtag_split(html);
+        for (let i = 1; i < html.length; i++) {
+            let hashtag = html[i].split(" ");
+            
+            hashtag[0] = sd_get_hashtag_el(hashtag[0]);
+    
+            html[i] = hashtag.join(" ");
+        }
+        html = html.join("");
+        $(this).html(html);
+    } catch (error) {
+    console.log(error);
         
-        hashtag[0] = sd_get_hashtag_el(hashtag[0]);
-
-        html[i] = hashtag.join(" ");
     }
-    html = html.join("");
-    $(this).html(html);
 } 
 
 try {
