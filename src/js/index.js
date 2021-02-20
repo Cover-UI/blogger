@@ -66,3 +66,45 @@ setTimeout(function sd_popup_modal(){
 },sd_popup_modal_delay*1000);
 
 
+
+
+function getInstaFeed(){
+    return new Promise((resolve, reject) => {
+        fetch("https://www.instagram.com/stingydeveloper/?__a=1").then(x=>x.json()).then(a=>{resolve(a)}).catch(e=>reject(e));
+    });
+}
+
+$(document).ready(function(){
+    getInstaFeed().then(api=>{
+        var data = api.graphql.user.edge_owner_to_timeline_media.edges;
+        let $carousel = $(".owl-carousel");
+        let feed_arr = [];    
+        for (let i = 0; i < data.length; i++) {
+
+            if(data[i].node.edge_sidecar_to_children != undefined){
+                const d = data[i].node.edge_sidecar_to_children.edges;
+                d.forEach(e => {
+                    feed_arr.push(e.node.display_url);
+                });
+            }else{
+                const d = data[i].node.thumbnail_src;
+                feed_arr.push(d);
+            }
+            
+        }
+
+        feed_arr.forEach(f => {
+            let el = `
+            <div><img src='${f}'/></div>
+            `;
+            $carousel.html($carousel.html()+el);            
+        });
+
+        $carousel.owlCarousel({
+            items: 3,
+            margin: 10,
+            autoplayTimeout: 1500
+        });
+    })
+    
+  });
