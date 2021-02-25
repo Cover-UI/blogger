@@ -3,7 +3,7 @@ function sd_get_search_url(value){
 }
 
 function sd_get_hashtag_el(value){
-    return `<a class="sd_blogger_hashtag" href="${sd_get_search_url(value)}">#${value}</a>`;
+    return `<a class="sd_blogger_hashtag" href="${sd_get_search_url(value)}"><b>#</b><strong>${value}</strong></a>`;
 }
 
 function sd_hashtag_split(array){
@@ -37,7 +37,6 @@ $.fn.blogger_hashtag_plugin = function(){
         html[i] = hashtag.join(" ");
     }
     html = html.join("");
-    console.log(html);
     $(this).html(html);
 } 
 
