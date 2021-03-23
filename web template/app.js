@@ -7,13 +7,13 @@ $(".sd-menu-toggle").click(function(){
 let PARTICLES_LOADED = false;
 
 if( window.outerWidth > 768 && !PARTICLES_LOADED){
-    particlesJS.load('particles-js', './particlesjs-config.json');
+    particlesJS.load('particles-js', 'https://raw.githubusercontent.com/Cover-UI/blogger/main/web%20template/particlesjs-config.json');
     PARTICLES_LOADED = true;
  }
 
 $(window).resize( function(event) {
     if( window.outerWidth > 768 && !PARTICLES_LOADED){
-        particlesJS.load('particles-js', './particlesjs-config.json');
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/Cover-UI/blogger/main/web%20template/particlesjs-config.json');
         PARTICLES_LOADED = true;
      }
      
